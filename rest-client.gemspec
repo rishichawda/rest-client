@@ -1,6 +1,7 @@
 # -*- encoding: utf-8 -*-
-
-require File.expand_path('../lib/restclient/version', __FILE__)
+file_directory = File.dirname(__FILE__).gsub(/\(eval at /, "")
+$:.unshift(File.join(file_directory, "lib"))
+require File.expand_path('lib/restclient/version.rb', file_directory)
 
 Gem::Specification.new do |s|
   s.name = 'rest-client'
@@ -23,7 +24,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency('rdoc', '>= 2.4.2', '< 6.0')
   s.add_development_dependency('rubocop', '~> 0.49')
 
-  s.add_dependency('http-accept', '>= 1.7.0', '< 2.0')
+  s.add_dependency('http-accept', '~> 2.1.0')
   s.add_dependency('http-cookie', '>= 1.0.2', '< 2.0')
   s.add_dependency('mime-types', '>= 1.16', '< 4.0')
   s.add_dependency('netrc', '~> 0.8')
